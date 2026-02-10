@@ -1,0 +1,173 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.3rem;
+    --chart-1: 222.2 47.4% 11.2%;
+    --chart-2: 210 40% 96.1%;
+    --chart-3: 140 80% 20%;
+    --chart-4: 140 80% 50%;
+    --chart-5: 140 80% 60%;
+
+    --editor-background: #ffffff;
+    --editor-foreground: #000000;
+    --editor-punctuation: #999;
+    --editor-tag: #905;
+    --editor-attribute: #690;
+    --editor-string: #690;
+    --editor-operator: #9a6e3a;
+    --editor-keyword: #07a;
+    --editor-function: #dd4a68;
+    --editor-comment: slategray;
+  }
+
+  .dark {
+    --background: 220 40% 10%;
+    --foreground: 210 40% 98%;
+    --card: 220 40% 13%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 40% 13%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 90% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 220 40% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 40% 18%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 220 40% 22%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 40% 20%;
+    --input: 220 40% 20%;
+    --ring: 210 90% 58%;
+    --chart-1: 210 40% 98%;
+    --chart-2: 210 90% 58%;
+    --chart-3: 140 80% 20%;
+    --chart-4: 140 80% 50%;
+    --chart-5: 140 80% 60%;
+    
+    --editor-background: hsl(220, 40%, 10%);
+    --editor-foreground: #d4d4d4;
+    --editor-punctuation: #809fff;
+    --editor-tag: #ff9d80;
+    --editor-attribute: #ffcc99;
+    --editor-string: #a5ff90;
+    --editor-operator: #809fff;
+    --editor-keyword: #ff80bf;
+    --editor-function: #ffffb3;
+    --editor-comment: #6b88a4;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+/* Custom styles for react-simple-code-editor to match theme */
+[data-prism-renderer="true"] {
+  background-color: var(--editor-background);
+  color: var(--editor-foreground);
+}
+[data-prism-renderer="true"] .prism-editor__textarea:focus {
+  outline: none;
+}
+[data-prism-renderer="true"] .token.comment,
+[data-prism-renderer="true"] .token.prolog,
+[data-prism-renderer="true"] .token.doctype,
+[data-prism-renderer="true"] .token.cdata {
+	color: var(--editor-comment);
+}
+
+[data-prism-renderer="true"] .token.punctuation {
+	color: var(--editor-punctuation);
+}
+
+[data-prism-renderer="true"] .token.property,
+[data-prism-renderer="true"] .token.tag,
+[data-prism-renderer="true"] .token.boolean,
+[data-prism-renderer="true"] .token.number,
+[data-prism-renderer="true"] .token.constant,
+[data-prism-renderer="true"] .token.symbol,
+[data-prism-renderer="true"] .token.deleted {
+	color: var(--editor-tag);
+}
+
+[data-prism-renderer="true"] .token.selector,
+[data-prism-renderer="true"] .token.attr-name,
+[data-prism-renderer="true"] .token.string,
+[data-prism-renderer="true"] .token.char,
+[data-prism-renderer="true"] .token.builtin,
+[data-prism-renderer="true"] .token.inserted {
+	color: var(--editor-string);
+}
+
+[data-prism-renderer="true"] .token.operator,
+[data-prism-renderer="true"] .token.entity,
+[data-prism-renderer="true"] .token.url,
+.language-css .token.string,
+.style .token.string {
+	color: var(--editor-operator);
+}
+
+[data-prism-renderer="true"] .token.atrule,
+[data-prism-renderer="true"] .token.attr-value,
+[data-prism-renderer="true"] .token.keyword {
+	color: var(--editor-keyword);
+}
+
+[data-prism-renderer="true"] .token.function,
+[data-prism-renderer="true"] .token.class-name {
+	color: var(--editor-function);
+}
+
+[data-prism-renderer="true"] .token.regex,
+[data-prism-renderer="true"] .token.important,
+[data-prism-renderer="true"] .token.variable {
+	color: #d16969;
+}
+
+@layer components {
+  .sun-icon {
+    @apply rotate-0 scale-100 transition-all;
+  }
+  .moon-icon {
+    @apply rotate-90 scale-0 transition-all;
+  }
+
+  .dark .sun-icon {
+    @apply -rotate-90 scale-0;
+  }
+
+  .dark .moon-icon {
+    @apply rotate-0 scale-100;
+  }
+}
